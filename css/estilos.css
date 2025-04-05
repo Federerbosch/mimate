@@ -14,6 +14,14 @@
 
 .navbar {
   background-color: #e6b8b8;
+  position: fixed;
+  top: -80;
+  z-index: 1000;
+  width: 100%;
+  transition: top 0.3s ease;
+}
+.navbar .navbar.show {
+  top: 0;
 }
 .navbar .container-nav .mimate-link {
   font-family: "Dancing Script", cursive;
@@ -21,12 +29,18 @@
   font-weight: 700;
   font-size: 3rem;
 }
+.navbar .container-nav .mimate-link:hover {
+  color: #fce7e0;
+}
 .navbar .container-nav .container__nav--links .links__items--style .nav-item .nav-link {
   font-family: Playfair Display;
   font-size: 1.3rem;
   font-weight: 700;
   color: #fff;
   text-transform: capitalize;
+}
+.navbar .container-nav .container__nav--links .links__items--style .nav-item .nav-link:hover {
+  color: #fce7e0;
 }
 
 .whatsapp-float {
@@ -49,6 +63,10 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Opcional: agrega una sombra */
 }
 
+.placeholder {
+  height: 70px; /* Ajusta este valor según la altura del nav */
+}
+
 .section-container {
   padding: 20px;
 }
@@ -61,6 +79,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  font-family: "Dancing Script", cursive;
 }
 
 .top-image::after {
@@ -88,11 +107,10 @@
   width: 50%;
 }
 
-.image-container img {
+.grid-hover {
   width: 100%;
-  height: auto;
+  height: 500px;
   display: block;
-  border-radius: 10px;
 }
 
 .text-overlay {
@@ -100,16 +118,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.6);
-  padding: 15px 20px;
+  background: #EAC7C1;
+  opacity: 0.5;
+  padding: 20px 30px;
   border-radius: 20px;
   text-align: center;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .title {
-  margin: 10px 0 30px 0;
+  margin: 20px 0 30px 0;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -119,8 +139,9 @@
 .h1 {
   text-transform: uppercase;
   font-weight: bold;
-  font-family: "Oswald";
-  letter-spacing: 2px;
+  font-family: Playfair Display;
+  letter-spacing: 3px;
+  font-size: 2.5em;
 }
 
 .container-card {
@@ -153,6 +174,11 @@
   background-color: #EAC7CF;
   padding: 80px;
 }
+.container-ayuda .ayuda-titulo {
+  padding: 10px;
+  font-family: Playfair Display;
+  font-size: 2.2em;
+}
 .container-ayuda .accordion-item {
   border-bottom: none; /* Elimina el borde inferior */
 }
@@ -184,9 +210,12 @@
 }
 .container_nosotros .container-historia {
   padding: 20px;
+  line-height: 2;
 }
 .container_nosotros .container-historia .nosotros-h3 {
   text-align: left;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 .container_nosotros .container-historia .nosotros-texto {
   text-align: left;
@@ -194,21 +223,21 @@
 .container_nosotros .grid-photos {
   display: grid; /* Activa CSS Grid */
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: minmax(200px, 1fr) minmax(250px, 1);
+  grid-template-rows: minmax(150px, 200px) minmax(150px, 250px);
   grid-template-areas: "content sidebar" "footer footer";
   gap: 10px;
 }
 .container_nosotros .grid-photos .photo-1 {
   grid-area: content;
-  background-color: #EAC7CF;
+  background: url("../../img/Salida_del_sol_en_el_horizonte_marino.jpg") no-repeat;
 }
 .container_nosotros .grid-photos .photo-2 {
   grid-area: sidebar;
-  background-color: #EAC7CF;
+  background: url("../../img/puerto.jpg") no-repeat;
 }
 .container_nosotros .grid-photos .photo-3 {
   grid-area: footer;
-  background-color: #EAC7CF;
+  background: url("../../img/pesca.jpg") no-repeat;
 }
 
 .container-location .location-description {
@@ -239,6 +268,10 @@
 
 .footer-column {
   text-align: center;
+}
+.footer-column .link-redes-style {
+  text-decoration: none;
+  color: #fff;
 }
 
 .footer-column h3 {
@@ -273,6 +306,10 @@
 
 .footer-column ul li {
   margin: 5px 0;
+}
+
+.redes-icons {
+  margin-right: 15px;
 }
 
 .divider {
