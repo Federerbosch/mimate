@@ -20,6 +20,7 @@
             z-index: 1000;
             width: 100%;
             transition: top 0.3s ease;
+            box-sizing: border-box;
             .navbar.show {
                 top: 0;
             }
@@ -75,7 +76,8 @@
 
 // Separacion del navegador
 .placeholder {
-    height: 70px; /* Ajusta este valor según la altura del nav */
+    height: 110px;
+    background-image: url(../../img/fondo_pagina.jpg);
 }
 
 //header
@@ -92,21 +94,16 @@
     justify-content: center;
     position: relative;
     font-family:'Dancing Script', cursive;
+    .name-marca{
+        font-size: 4rem;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-family: "Latin Modern Math", "Cambria Math", serif;
+      }
 }
 
-.top-image::after {
-    content: "";
-    width: 200px;
-    height: 200px;
-    background: url('../../img/variabe\ negativa-mini.png') no-repeat center;
-    opacity: 0.5;
-    background-size: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
+
 
 .image-grid {
     display: flex;
@@ -140,6 +137,27 @@
     text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+    .top-image {
+        height: 300px; /* Even more compact for smaller mobile devices */
+    }
+    
+    .image-grid {
+        display: none;
+    }
+    .header-text {
+        font-size: 1em;
+    }
+    
+    .header-brand {
+        font-size: 1.2em;
+    }
+    .whatsapp-float img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
 // -----------------------
 
 // Seccion de cards
@@ -151,11 +169,11 @@
     justify-content: center;
     
 }
-.h1{
+.h2{
     text-transform: uppercase;
     font-weight: bold;
     font-family: Playfair Display;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     font-size: 2.5em;
 }
 
@@ -181,12 +199,44 @@
         .card-name{
             background-color: #EAC7CF;
             margin: 10px 0;
-            font-size: 18px;
+            font-size: 1.2rem;
             border-radius: 10px;
         }
         }
 }
-
+        .separador {
+            height: 100px;
+            background-image: url(../../img/fondo_pagina.jpg);
+        }
+        
+        /* Media query para mobile */
+        @media (max-width: 768px) {
+            .h2{
+                font-size: 1.5em;
+            }
+            .container-card {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 30px;
+                padding: 15px;
+                margin-bottom: 50px;
+                .card {
+                    .card-imagen {
+                        .producto-imagen {
+                            height: 100px;
+                        }
+                    }
+                    
+                    .card-name {
+                        font-size: 1rem;
+                        padding: 8px;
+                    }
+                }
+            }
+            
+            .separador {
+                display: none;
+            }
+        }
 
 // Preguntas Frecuentes
 .container-ayuda{
@@ -194,8 +244,11 @@
     padding: 80px;
     .ayuda-titulo{
         padding: 10px;
+        font-size: 2em;
+        text-transform: uppercase;
+        font-weight: bold;
         font-family: Playfair Display;
-        font-size: 2.2em;
+        letter-spacing: 1px;
     }
     .accordion-item {
         border-bottom: none; /* Elimina el borde inferior */
@@ -214,6 +267,72 @@
     }
 }
 
+/* Media query para móviles (hasta 600px) */
+@media (max-width: 768px) {
+    .container-ayuda {
+        padding: 30px 20px;
+        
+        .ayuda-titulo {
+            font-size: 1.3em;
+            letter-spacing: 0;
+            padding: 10px 0;
+            text-align: center;
+        }
+        
+        .accordion-item {
+            margin-bottom: 15px;
+            
+            .accordion-button {
+                padding: 12px 15px;
+                font-size: 0.7em;
+            }
+            
+            .accordion-body {
+                padding: 15px 0 15px 10px;
+                font-size: 0.9em;
+                border-left-width: 3px;
+            }
+        }
+    }
+    // sobre nosotros historia
+    .fila{
+        display: none;
+    }
+
+    // ubicacion
+        .container_nosotros {
+            padding-bottom: 40px;
+            gap: 30px;
+            .fila-mapa{
+                display: flex;
+                flex-direction: column-reverse;
+                text-align: center;
+    
+            .container-historia{
+                padding: 20px;
+                line-height: 1.8;
+                text-align: center;
+                .nosotros-h3 {
+                    line-height: 1.5;
+                    font-size: 1em;
+                    margin-bottom: 15px;
+                    text-align: center;
+                }
+    
+                .description-text {
+                    font-size: 0.95rem;
+                }
+            }
+    
+            .col .iframe-ubicacion {
+                height: 350px;
+            }
+        }
+    }
+}
+    
+
+
 // Sobre nosotros
     .container-after::after {
     content: "";
@@ -227,6 +346,13 @@
 .container_nosotros{
     box-sizing: border-box;
     padding-bottom: 40px;
+    .col{
+        .iframe-ubicacion{
+            max-width: 600px;
+            height: 400px;
+            padding: 30px 0 0 0;
+        }
+    }
     .container-historia{
         padding: 20px;
         line-height: 2;
@@ -239,6 +365,9 @@
             text-align: left;
         }
     }
+
+
+    
 
     // Grid de fotos
     .grid-photos{
@@ -265,17 +394,4 @@
 
 }
 
-// Ubicacion
-.container-location{
-    .location-description{
-        padding: 20px;
-        .description-h3{
-            text-align: left;
-        }
-        .description-text{
-            text-align: left;
-        }
-
-    }
-}
 

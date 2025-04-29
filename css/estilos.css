@@ -19,6 +19,7 @@
   z-index: 1000;
   width: 100%;
   transition: top 0.3s ease;
+  box-sizing: border-box;
 }
 .navbar .navbar.show {
   top: 0;
@@ -64,7 +65,8 @@
 }
 
 .placeholder {
-  height: 70px; /* Ajusta este valor según la altura del nav */
+  height: 110px;
+  background-image: url(../../img/fondo_pagina.jpg);
 }
 
 .section-container {
@@ -81,19 +83,12 @@
   position: relative;
   font-family: "Dancing Script", cursive;
 }
-
-.top-image::after {
-  content: "";
-  width: 200px;
-  height: 200px;
-  background: url("../../img/variabe negativa-mini.png") no-repeat center;
-  opacity: 0.5;
-  background-size: cover;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
+.top-image .name-marca {
+  font-size: 4rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Latin Modern Math", "Cambria Math", serif;
 }
 
 .image-grid {
@@ -128,6 +123,24 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+  .top-image {
+    height: 300px; /* Even more compact for smaller mobile devices */
+  }
+  .image-grid {
+    display: none;
+  }
+  .header-text {
+    font-size: 1em;
+  }
+  .header-brand {
+    font-size: 1.2em;
+  }
+  .whatsapp-float img {
+    width: 90%;
+    height: 90%;
+  }
+}
 .title {
   margin: 20px 0 30px 0;
   text-align: center;
@@ -136,11 +149,11 @@
   justify-content: center;
 }
 
-.h1 {
+.h2 {
   text-transform: uppercase;
   font-weight: bold;
   font-family: Playfair Display;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   font-size: 2.5em;
 }
 
@@ -166,18 +179,48 @@
 .container-card .card .card-name {
   background-color: #EAC7CF;
   margin: 10px 0;
-  font-size: 18px;
+  font-size: 1.2rem;
   border-radius: 10px;
 }
 
+.separador {
+  height: 100px;
+  background-image: url(../../img/fondo_pagina.jpg);
+}
+
+/* Media query para mobile */
+@media (max-width: 768px) {
+  .h2 {
+    font-size: 1.5em;
+  }
+  .container-card {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 30px;
+    padding: 15px;
+    margin-bottom: 50px;
+  }
+  .container-card .card .card-imagen .producto-imagen {
+    height: 100px;
+  }
+  .container-card .card .card-name {
+    font-size: 1rem;
+    padding: 8px;
+  }
+  .separador {
+    display: none;
+  }
+}
 .container-ayuda {
   background-color: #EAC7CF;
   padding: 80px;
 }
 .container-ayuda .ayuda-titulo {
   padding: 10px;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: bold;
   font-family: Playfair Display;
-  font-size: 2.2em;
+  letter-spacing: 1px;
 }
 .container-ayuda .accordion-item {
   border-bottom: none; /* Elimina el borde inferior */
@@ -195,6 +238,59 @@
   margin-left: 0; /* Elimina el margen a la izquierda */
 }
 
+/* Media query para móviles (hasta 600px) */
+@media (max-width: 768px) {
+  .container-ayuda {
+    padding: 30px 20px;
+  }
+  .container-ayuda .ayuda-titulo {
+    font-size: 1.3em;
+    letter-spacing: 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .container-ayuda .accordion-item {
+    margin-bottom: 15px;
+  }
+  .container-ayuda .accordion-item .accordion-button {
+    padding: 12px 15px;
+    font-size: 0.7em;
+  }
+  .container-ayuda .accordion-item .accordion-body {
+    padding: 15px 0 15px 10px;
+    font-size: 0.9em;
+    border-left-width: 3px;
+  }
+  .fila {
+    display: none;
+  }
+  .container_nosotros {
+    padding-bottom: 40px;
+    gap: 30px;
+  }
+  .container_nosotros .fila-mapa {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .container_nosotros .fila-mapa .container-historia {
+    padding: 20px;
+    line-height: 1.8;
+    text-align: center;
+  }
+  .container_nosotros .fila-mapa .container-historia .nosotros-h3 {
+    line-height: 1.5;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .container_nosotros .fila-mapa .container-historia .description-text {
+    font-size: 0.95rem;
+  }
+  .container_nosotros .fila-mapa .col .iframe-ubicacion {
+    height: 350px;
+  }
+}
 .container-after::after {
   content: "";
   display: block;
@@ -207,6 +303,11 @@
 .container_nosotros {
   box-sizing: border-box;
   padding-bottom: 40px;
+}
+.container_nosotros .col .iframe-ubicacion {
+  max-width: 600px;
+  height: 400px;
+  padding: 30px 0 0 0;
 }
 .container_nosotros .container-historia {
   padding: 20px;
@@ -240,16 +341,6 @@
   background: url("../../img/pesca.jpg") no-repeat;
 }
 
-.container-location .location-description {
-  padding: 20px;
-}
-.container-location .location-description .description-h3 {
-  text-align: left;
-}
-.container-location .location-description .description-text {
-  text-align: left;
-}
-
 .footer {
   background-color: #e6b8b8;
   padding: 40px;
@@ -271,7 +362,6 @@
   margin-right: auto;
 }
 .footer .footer-container .footer-column .column-left {
-  width: 80%;
   text-align: left;
 }
 .footer .footer-container .footer-column .column-left ul {
@@ -337,4 +427,62 @@
   font-size: 0.9em;
   margin-top: 10px;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+  .footer .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    gap: 25px;
+  }
+  .footer .footer-container .footer-column {
+    width: 90%;
+    height: auto;
+    text-align: left;
+  }
+  .footer .footer-container .footer-column .column-left {
+    padding-bottom: 10px;
+  }
+  .footer .footer-container .footer-column ul li .items-navigator {
+    font-size: 0.8em;
+  }
+  .footer .footer-container .footer-column h3 {
+    font-size: 1.1em;
+  }
+  .footer .footer-container .footer-column .img_envio {
+    width: 50px;
+    height: auto;
+  }
+  .footer .footer-container .footer-column .link-redes-style {
+    display: inline-block;
+  }
+  .footer .footer-container .footer-column .link-redes-style .redes-icons {
+    margin-right: 10px;
+  }
+  .footer .footer-container .footer-logo {
+    order: -1;
+    margin-bottom: 10px;
+  }
+  .footer .footer-container .footer-logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .footer .footer-container .divider {
+    width: 80%;
+    margin: 0;
+  }
+  .footer .footer-container p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+  }
 }/*# sourceMappingURL=estilos.css.map */
